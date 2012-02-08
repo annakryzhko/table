@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript" src="js/jquery-1.7.1.js"></script>
+    <script type="text/javascript" src="js/pure.js"></script>
+    <style type="text/css">
+        .ui-fixed-thead
+        {
+            background: #fff;
+        }
+        .ui-fixed-thead td
+        {
+           
+            border-width:0;
+            margin:0;
+            padding:0;
+        }
+        .ui-fixed-thead td a
+        {
+            border-bottom: #ccc 1px dashed;
+        }
+        .fixed
+        {
+            position: fixed;
+            z-index:1000;
+            top: 0;
+            background: #e0e0e0;
+        }
+		tbody.loading  {
+		background:#eee;
+		-moz-opacity: 0.5;  
+	-khtml-opacity: 0.5;  
+	opacity: 0.5;  
+		}
+		div.ui-paging a {
+		float:left;
+		padding:0.2em 0.5em;
+		color:#3333CC;
+		text-decoration:underline;}
+		
+		div.ui-paging a.ui-active {
+		float:left;
+		padding:0.2em 0.5em;
+		color: #660066;
+		text-decoration:none;}
+		
+    </style>
+</head>
+<body>
+    <h1>
+        Companies</h1>
+    <form style="background: #eee;">
+    <input type="text" class="ui-filter-text" />
+    <select class="ui-filter-select">
+        <option value="">All</option>
+        <option value="1">Shops</option>
+        <option value="2">Banking</option>
+    </select></form>
+    <table class="ui-table-data" style="width: 300px;">
+        <thead class="ui-fixed-thead">
+            <td>
+                <a>Name</a>
+            </td>
+            <td>
+                <a>Type</a>
+            </td>
+            <td>
+                <a>Contact</a>
+            </td>
+        </thead>
+        <tbody>
+            <tr><td>a1</td><td>1</td><td>322221</td></tr><tr><td>b3</td><td>2</td><td>225556</td></tr><tr><td>c2</td><td>5</td><td>458787</td></tr><tr><td>k3</td><td>1</td><td></td></tr><tr><td>s3</td><td>2</td><td>65468</td></tr><tr><td>a1</td><td>1</td><td>322221</td></tr><tr><td>b3</td><td>2</td><td>225556</td></tr><tr><td>c2</td><td>5</td><td>458787</td></tr><tr><td>k3</td><td>1</td><td></td></tr><tr><td>s3</td><td>2</td><td>65468</td></tr><tr><td>a1</td><td>1</td><td>322221</td></tr><tr><td>b3</td><td>2</td><td>225556</td></tr><tr><td>c2</td><td>5</td><td>458787</td></tr><tr><td>k3</td><td>1</td><td></td></tr><tr><td>s3</td><td>2</td><td>65468</td></tr><tr><td>a1</td><td>1</td><td>322221</td></tr><tr><td>b3</td><td>2</td><td>225556</td></tr><tr><td>c2</td><td>5</td><td>458787</td></tr><tr><td>k3</td><td>1</td><td></td></tr><tr><td>s3</td><td>2</td><td>65468</td></tr><tr><td>a1</td><td>1</td><td>322221</td></tr><tr><td>b3</td><td>2</td><td>225556</td></tr><tr><td>c2</td><td>5</td><td>458787</td></tr><tr><td>k3</td><td>1</td><td></td></tr><tr><td>send</td><td>2</td><td>65468</td></tr>
+        </tbody>
+    </table>
+    <div class="ui-paging">
+        <a>1</a><a>2</a><a>3</a><a>4</a><a>5</a><a>6</a></div>
+        <button value="resize" id="res_but" ></button>
+    <script type="text/javascript" src="js/table.js"></script>
+</body>
+</html>
