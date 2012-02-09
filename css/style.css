@@ -1,0 +1,46 @@
+﻿.ui-fixed-thead
+        {
+            background: #fff;
+        }
+        .ui-fixed-thead td
+        {
+           
+            border-width:0;
+            margin:0;
+            padding:0;
+        }
+        .ui-fixed-thead td a
+        {
+            border-bottom: #ccc 1px dashed;
+        }
+        .fixed
+        {
+            position: fixed;
+            z-index:1000;
+            top: 0;
+            background: #e0e0e0;
+        }
+        
+		tbody.loading  {
+		background:#eee;
+		-moz-opacity: 0.5;  
+	    -khtml-opacity: 0.5;  
+	    opacity: 0.5;  
+		}
+		
+		div.ui-paging a {
+		float:left;
+		cursor:pointer;
+		padding:0.2em 0.5em;
+		color:#3333CC;
+		text-decoration:underline;
+		}
+		
+		div.ui-paging a.ui-active {
+		float:left;
+		cursor:pointer;
+		padding:0.2em 0.5em;
+		color: #660066;
+		text-decoration:none;
+		}
+		a.ui-sort {}
