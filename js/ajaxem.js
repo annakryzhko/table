@@ -56,4 +56,3 @@ var Updater = function (conf) {
     }
 }
 
-var TBodyUpdater = new Updater({ selector: 'table.ui-table-data' })

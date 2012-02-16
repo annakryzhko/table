@@ -1,20 +1,24 @@
-var search_conf = { selector: "input.ui-filter-text",
-    etypes: ["keyup", "paste"],
-    className: "filter", 
-    name: "search"
-};
 
+var Searching = function (conf) {
 
+    var Cnt = new Filter(conf);
 
-var Searching = new Filter(search_conf);
-Searching.setChange = function (e) {
-    this.cnt.attr("data-filter", e.target.value);
+    Cnt.setChange = function (e) {
+        this.cnt.attr("data-filter", e.target.value);
+    }
+
+    Cnt.setBack = function (val) {
+        this.cnt.attr("value", val);
+    }
+
+    Cnt.initFilter();
+
+    return Cnt;
+
 }
 
-Searching.setBack = function (val) {
-    this.cnt.attr("value", val);
-}
 
-Searching.initFilter();
+
+
 
 

@@ -109,7 +109,7 @@
            </tbody>
     </table>
     <div class="ui-paging">
-        <a>1</a><a>2</a><a>3</a><a>4</a><a>5</a><a>6</a></div>
+        <a class="ui-active">1</a><a>2</a><a>3</a><a>4</a><a>5</a><a>6</a></div>
     <script type="text/javascript" src="js/ajaxem.js"></script>
     <script type="text/javascript" src="js/table.js"></script>
     <script type="text/javascript" src="js/filtering.js"></script>
@@ -117,5 +117,33 @@
     <script type="text/javascript" src="js/searching.js"></script>
     <script type="text/javascript" src="js/sortfiltering.js"></script>
     <script type="text/javascript" src="js/selectfiltering.js"></script>
+    <script type="text/javascript">
+        var TBodyUpdater = new Updater({ selector: 'table.ui-table-data' })
+
+        var DocCnt = new AN_Controller({ selector: ".filter", updater: TBodyUpdater });
+
+        var PagingCnt = new Paging({ selector: "div.ui-paging",
+            etypes: ["click"],
+            className: "filter",
+            name: "page"
+        });
+        var searchCnt = new Searching({ selector: "input.ui-filter-text",
+            etypes: ["keyup", "paste"],
+            className: "filter",
+            name: "search"
+        });
+        var SelectCnt = new SelectFiltering({ selector: "select.ui-filter-select",
+            etypes: ["change"],
+            className: "filter",
+            name: "type"
+        });
+
+
+        var sortCnt = new Sorting({ selector: "thead.ui-fixed-thead",
+            etypes: ["click"],
+            className: "filter",
+            name: "sort"
+        });
+    </script>
 </body>
 </html>

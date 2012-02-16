@@ -58,7 +58,7 @@ var AN_Controller = function (conf) {
     }
 };
 
-var DocCnt = new AN_Controller({ selector: ".filter", updater: TBodyUpdater });
+
 
 
 
