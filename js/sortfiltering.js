@@ -1,23 +1,27 @@
 
-var Sorting =  function (conf) {
+var Sorting = function (conf) {
 
     var Cnt = new Filter(conf);
 
-    Cnt.setChange = function (e) {
+    Cnt.getChange = function (e) {
 
         var targ = e.target;
-
         if (targ.nodeName.toLowerCase() == "td") {
+            targ = targ.getElementsByTagName("a")[0];
+        }
+
+        if (targ.nodeName.toLowerCase() == "a") {
             this.cnt
-            .find("td.ui-active")
+            .find("a.ui-active")
             .removeClass("ui-active")
             .removeClass("asc")
             .removeClass("desc");
             $(targ).addClass("ui-active");
             $(targ).attr("data-order", ($(targ).attr("data-order") == "asc") ? "desc" : "asc");
             $(targ).addClass("ui-active " + $(targ).attr("data-order"));
-
-            this.cnt.attr("data-filter", $(targ).attr("data-col") + "-" + $(targ).attr("data-order"));
+            e.preventDefault();
+            e.stopPropagation();
+            return $(targ).attr("data-col") + "-" + $(targ).attr("data-order");
         }
     }
 
@@ -25,7 +29,7 @@ var Sorting =  function (conf) {
     Cnt.setBack = function (val) {
         var cur_choice, arrVal;
         this.cnt
-            .find("td.ui-active")
+            .find("a.ui-active")
             .removeClass("ui-active")
             .removeClass("asc")
             .removeClass("desc");

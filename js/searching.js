@@ -1,10 +1,9 @@
-
 var Searching = function (conf) {
 
     var Cnt = new Filter(conf);
 
-    Cnt.setChange = function (e) {
-        this.cnt.attr("data-filter", e.target.value);
+    Cnt.getChange = function (e) {
+       return e.target.value;
     }
 
     Cnt.setBack = function (val) {

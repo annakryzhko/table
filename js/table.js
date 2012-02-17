@@ -1,42 +1,52 @@
-// JavaScript Document
 //fixed thead
 function FixedThead(conf) {
     var thead_tr_elem = $(conf.selector),
-                thead_tr_elem_copy,
+                thead_tr_elem_copy = null,
                 table_elem = thead_tr_elem.parent().parent();
 
-    thead_tr_elem_copy = thead_tr_elem.clone(true, true);
-    thead_tr_elem_copy.appendTo(thead_tr_elem.parent());
-    thead_tr_elem_copy.addClass("fixed");
-
+    function makeCopy() {
+        thead_tr_elem_copy = thead_tr_elem.clone(true, true);
+        thead_tr_elem_copy.appendTo(thead_tr_elem.parent());
+        thead_tr_elem_copy.addClass("fixed");
+    }
     function matchWidth() {
         var thead_first_tds = thead_tr_elem.find("td");
-        thead_tr_elem_copy.find("td").each(function (index) {
-
-            $(this).css("width", $(thead_first_tds[index]).width());
-        });
+        //thead_tr_elem_copy.css("width", thead_tr_elem.width());
+        
+        if (thead_tr_elem_copy) {
+            thead_tr_elem_copy.find("td").each(function (index) {
+                $(this).css("width", thead_first_tds.eq(index).width());
+            });
+        }
     }
 
-    table_elem.resize(matchWidth);
-    table_elem.resize();
-
-
-    thead_tr_elem_copy.hide();
+     
     $(window).scroll(function (e) {
         var windowTop = $(window).scrollTop();
 
-        if (windowTop > table_elem.offset().top) {
-
-            thead_tr_elem_copy.show();
+        if (windowTop >= table_elem.offset().top) {
+            if (!thead_tr_elem_copy) {
+                makeCopy();
+                table_elem.resize();
+            }
         }
-        else { thead_tr_elem_copy.hide(); }
-    });
+        else {
+            if (thead_tr_elem_copy) {
+                thead_tr_elem.remove();
+                thead_tr_elem_copy.removeClass("fixed");
+                thead_tr_elem_copy.css("width", "auto");
+                thead_tr_elem = thead_tr_elem_copy;
+                thead_tr_elem_copy = null;
+            }
 
-    this.resize = function () {
-        table_elem.resize();
-    };
+        }
+    });
+    $(window).resize(function (e) {
+        matchWidth()
+        }
+  );
 
 };
-var theadManager = new FixedThead({selector:"thead.ui-fixed-thead tr"});
+
 
 

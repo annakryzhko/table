@@ -18,99 +18,140 @@
         <option value="2">Banking</option>
     </select></form>
     <table class=" ui-table-data" style="width: 300px;">
+        <col style="width: 150px" />
+        <col style="width: 150px" />
+        <col style="width: 150px" />
         <thead class="ui-fixed-thead">
-            <td data-col="name">
-                Name
+            <td>
+                <a href="" data-col="name">Name</a>
             </td>
-            <td data-col="type">
-                Type
+            <td>
+                <a href="" data-col="type">Type </a>
             </td>
-            <td data-col="contact">
-                Contact </a>
+            <td>
+                <a href="" data-col="contact">Contact </a>
             </td>
         </thead>
         <tbody>
             <tr>
                 <td>
-                    Ann
+                    Aval
                 </td>
                 <td>
-                    1
+                    bank
                 </td>
                 <td>
-                    322221
+                    332-223
                 </td>
             </tr>
             <tr>
                 <td>
-                    Vera
+                    Privat
                 </td>
                 <td>
-                    2
+                    bank
                 </td>
                 <td>
-                    225556
+                    332-223
                 </td>
             </tr>
             <tr>
                 <td>
-                    Nika
+                    Ukrsibbank
                 </td>
                 <td>
-                    5
+                    bank
                 </td>
                 <td>
-                    458787
+                    332-223
                 </td>
             </tr>
             <tr>
                 <td>
-                    Eugene
+                    Cosmo
                 </td>
                 <td>
-                    1
+                    shop
                 </td>
                 <td>
+                    332-623
                 </td>
             </tr>
             <tr>
                 <td>
-                    Katerina
+                    Sela
                 </td>
                 <td>
-                    2
+                    shop
                 </td>
                 <td>
-                    65468
+                    332223
                 </td>
             </tr>
             <tr>
                 <td>
-                    Nina
+                    Colin's
                 </td>
                 <td>
-                    1
+                    shop
                 </td>
                 <td>
-                    322221
+                    332-223
                 </td>
             </tr>
             <tr>
                 <td>
-                    Marina
+                    Rifle
                 </td>
                 <td>
-                    2
+                    shop
                 </td>
                 <td>
-                    225556
+                    332-723
                 </td>
             </tr>
-           </tbody>
+            <tr>
+                <td>
+                    Puma
+                </td>
+                <td>
+                    shop
+                </td>
+                <td>
+                    332-e23
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Ecco
+                </td>
+                <td>
+                    shop
+                </td>
+                <td>
+                    332-223
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Geox
+                </td>
+                <td>
+                    shop
+                </td>
+                <td>
+                    332-223
+                </td>
+            </tr>
+        </tbody>
     </table>
     <div class="ui-paging">
-        <a class="ui-active">1</a><a>2</a><a>3</a><a>4</a><a>5</a><a>6</a></div>
+        <a class="ui-active" href="">1</a><a href="">2</a><a href="">3</a><a href="">4</a><a
+            href="">5</a><a href="">6</a></div>
     <script type="text/javascript" src="js/ajaxem.js"></script>
+    <script type="text/javascript" src="js/updater.js"></script>
+    <script type="text/javascript" src="js/controller.js"></script>
+    <script type="text/javascript" src="js/mediator.js"></script>
     <script type="text/javascript" src="js/table.js"></script>
     <script type="text/javascript" src="js/filter.js"></script>
     <script type="text/javascript" src="js/paging.js"></script>
@@ -118,30 +159,29 @@
     <script type="text/javascript" src="js/sortfiltering.js"></script>
     <script type="text/javascript" src="js/selectfiltering.js"></script>
     <script type="text/javascript">
-        var TBodyUpdater = new Updater({ selector: 'table.ui-table-data' })
 
-        var DocCnt = new AN_Controller({ selector: ".filter", updater: TBodyUpdater });
+        var theadManager = new FixedThead({ selector: "thead.ui-fixed-thead tr" });
+        var company_updater = new TBodyUpdater({ selector: 'table.ui-table-data tbody' });
+        var hist_cnt = new History_Controller();
+        mediator.updater = company_updater;
+        mediator.history_cnt = hist_cnt;
 
         var PagingCnt = new Paging({ selector: "div.ui-paging",
             etypes: ["click"],
-            className: "filter",
             name: "page"
         });
         var searchCnt = new Searching({ selector: "input.ui-filter-text",
             etypes: ["keyup", "paste"],
-            className: "filter",
             name: "search"
         });
         var SelectCnt = new SelectFiltering({ selector: "select.ui-filter-select",
             etypes: ["change"],
-            className: "filter",
             name: "type"
         });
 
 
         var sortCnt = new Sorting({ selector: "thead.ui-fixed-thead",
             etypes: ["click"],
-            className: "filter",
             name: "sort"
         });
     </script>

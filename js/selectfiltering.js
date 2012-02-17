@@ -1,12 +1,10 @@
-
 var SelectFiltering = function (conf) {
-
     var Cnt = new Filter(conf);
 
-    Cnt.setChange = function (e) {
+    Cnt.getChange = function (e) {
         var val, targ = e.target;
         val = this.cnt.find("option:selected").val();
-        this.cnt.attr("data-filter", val);
+        return val;
 
     }
 

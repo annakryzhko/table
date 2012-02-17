@@ -1,29 +1,39 @@
 ﻿html, body {margin:0; padding:0;}
 body {margin-left:20px;}
-table {}
-table td {padding:0.2em 0.5em;}
+table { border-collapse:collapse; border:0; padding:0;}
+table td {padding:0.2em 0.5em;  }
 .ui-fixed-thead
 {
     background: #fff;
+    padding:0;
+    margin:0;
 }
 .ui-fixed-thead td
 {
     border-width: 0;
     margin: 0;
+    cursor:pointer;
      
 }
 .ui-fixed-thead td 
 {
     border-bottom: #ccc 1px dashed;
     
-    min-width:200px;
+    
+}
+.ui-fixed-thead td  a
+{
+    text-decoration:none;
+    color:#000;
 }
 .fixed
 {
     position: fixed;
     z-index: 1000;
     top:0px;
-    
+    border-collapse:collapse;
+     border:0; 
+     padding:0;
     background:#fff;
 }
 
@@ -53,11 +63,11 @@ div.ui-paging a.ui-active
     color: #660066;
     text-decoration: none;
 }
-td.asc:after
+a.asc:after
 {
     content: "↑";
 }
-td.desc:after
+a.desc:after
 {
     content: "↓";
 }
